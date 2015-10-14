@@ -1,0 +1,15 @@
+{
+  "clawPosition": 0,
+  "level": [
+      [],
+      ["red", "red"],
+      ["red", "red"],
+      []
+    ],
+  "solution": [
+      [],
+      ["red", "red"],
+      [],
+      ["red", "red"]
+    ]
+}
