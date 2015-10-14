@@ -110,17 +110,23 @@ class Scene {
     for (let i = 0, len = this.level.length; i < len; i += 1) {
       if (i === this.claw.getPosition()) {
         if (this.claw.hasBox) {
-          arr[i] = "[x]"
+          arr[i] = '[/]'
         } else {
-          arr[i] = "[ ]"
+          arr[i] = '{ }'
         }
       } else {
-        arr[i] = "...";
+        arr[i] = '   ';
       }
     }
     console.clear();
-    console.log(arr)
-    console.log(`["[${this.level[0].length}]", "[${this.level[1].length}]", "[${this.level[2].length}]", "[${this.level[3].length}]"]`);
+    console.log(`| ${arr[0]} | ${arr[1]} | ${arr[2]} | ${arr[3]} |`);
+    console.log('                          ');
+    console.log(`| ${this.level[0][5] ? this.level[0][5].color : '   '} | ${this.level[1][5] ? this.level[1][5].color : '   '} | ${this.level[2][5] ? this.level[2][5].color : '   '} | ${this.level[3][5] ? this.level[3][5].color : '   '} |`);
+    console.log(`| ${this.level[0][4] ? this.level[0][4].color : '   '} | ${this.level[1][4] ? this.level[1][4].color : '   '} | ${this.level[2][4] ? this.level[2][4].color : '   '} | ${this.level[3][4] ? this.level[3][4].color : '   '} |`);
+    console.log(`| ${this.level[0][3] ? this.level[0][3].color : '   '} | ${this.level[1][3] ? this.level[1][3].color : '   '} | ${this.level[2][3] ? this.level[2][3].color : '   '} | ${this.level[3][3] ? this.level[3][3].color : '   '} |`);
+    console.log(`| ${this.level[0][2] ? this.level[0][2].color : '   '} | ${this.level[1][2] ? this.level[1][2].color : '   '} | ${this.level[2][2] ? this.level[2][2].color : '   '} | ${this.level[3][2] ? this.level[3][2].color : '   '} |`);
+    console.log(`| ${this.level[0][1] ? this.level[0][1].color : '   '} | ${this.level[1][1] ? this.level[1][1].color : '   '} | ${this.level[2][1] ? this.level[2][1].color : '   '} | ${this.level[3][1] ? this.level[3][1].color : '   '} |`);
+    console.log(`| ${this.level[0][0] ? this.level[0][0].color : '   '} | ${this.level[1][0] ? this.level[1][0].color : '   '} | ${this.level[2][0] ? this.level[2][0].color : '   '} | ${this.level[3][0] ? this.level[3][0].color : '   '} |`);
   }
 }
 
