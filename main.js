@@ -18,13 +18,13 @@ class Claw {
   }
 
   moveLeft() {
-    if (this.position === 0) return false;
-    this.position -= 1;
+    if (this.position === 0) return null;
+    return this.position -= 1;
   }
 
   moveRight() {
-    if (this.position === this.maxPosition - 1) return false;
-    this.position += 1;
+    if (this.position === this.maxPosition - 1) return null;
+    return this.position += 1;
   }
 
   getPosition() {
@@ -51,6 +51,7 @@ class Scene {
     this.solution = this.parseToLevel(scene.solution);
 
     this.claw = new Claw(scene.clawPosition, this.level.length);
+    this.maxStackSize = 6;
   }
 
   parseToLevel(data) {
@@ -72,17 +73,28 @@ class Scene {
   }
 
   moveClawLeft() {
-    this.claw.moveLeft();
+    if(this.claw.moveLeft() === null) {
+      console.log('OVER');
+      return;
+    }
     this.render();
   }
   moveClawRight() {
-    this.claw.moveRight();
+    if(this.claw.moveRight()  === null) {
+      console.log('OVER');
+      return
+    }
+
     this.render();
   }
   moveClawDown() {
     let position = this.claw.getPosition(),
         el;
     if ( this.claw.hasBox ) {
+      if ( this.level[position].length === this.maxStackSize ) {
+        console.log('OVER');
+        return;
+      }
       this.level[position].push(this.claw.getBox());
     } else {
       if (this.level[position].length) {
