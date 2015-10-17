@@ -45,6 +45,18 @@ class Claw {
   }
 }
 
+class Game {
+  constructor(scene) {
+    this.scene = scene;
+  }
+  setCommands(commands) {
+    this.commands = commands;
+  }
+  playCommands() {
+
+  }
+}
+
 class Scene {
   constructor(scene) {
     this.level = this.parseToLevel(scene.level);
@@ -134,7 +146,7 @@ class Scene {
 
 
 
-var s;
+var game;
 
 fetch('level.json')
   .then(
@@ -146,8 +158,9 @@ fetch('level.json')
       }
 
       response.json().then(function(data) {
-        s = new Scene(data);
-        s.render();
+        game = new Game(new Scene(data));
+        game.scene.render();
+
 
         document.onkeydown = checkKey;
 
@@ -156,18 +169,17 @@ fetch('level.json')
             e = e || window.event;
 
             if (e.keyCode == '38') {
-                // up arrow
+              game.scene.moveClawDown();
             }
             else if (e.keyCode == '40') {
-                s.moveClawDown();
+              game.scene.moveClawDown();
             }
             else if (e.keyCode == '37') {
-                s.moveClawLeft();
+              game.scene.moveClawLeft();
             }
             else if (e.keyCode == '39') {
-                s.moveClawRight();
+              game.scene.moveClawRight();
             }
-
         }
       });
 
