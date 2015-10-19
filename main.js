@@ -45,18 +45,6 @@ class Claw {
   }
 }
 
-class Game {
-  constructor(scene) {
-    this.scene = scene;
-  }
-  setCommands(commands) {
-    this.commands = commands;
-  }
-  playCommands() {
-
-  }
-}
-
 class Scene {
   constructor(scene) {
     this.level = this.parseToLevel(scene.level);
@@ -96,7 +84,6 @@ class Scene {
       console.log('OVER');
       return
     }
-
     this.render();
   }
   moveClawDown() {
@@ -142,9 +129,11 @@ class Scene {
   }
 }
 
-
-
-
+class Game {
+  constructor(scene) {
+    this.scene = scene;
+  }
+}
 
 var game;
 
