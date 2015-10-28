@@ -135,6 +135,8 @@ class Game {
   }
 }
 
+// Start game
+
 var game;
 
 fetch('level.json')
